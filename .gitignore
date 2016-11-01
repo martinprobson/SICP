@@ -1,0 +1,22 @@
+# Ignore vim generated files
+*~
+*.swp
+*.swo
+*.session
+.~*
+# and Java/Eclipse stuff
+*.class
+*.html
+*.css
+*.log*
+doc
+package-list
+class-use
+index-files
+/.project
+.settings
+/.classpath
+junit
+/bin/
+
+

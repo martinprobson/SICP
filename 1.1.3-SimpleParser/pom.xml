@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gmail.martinprobson.learning</groupId>
+  <artifactId>SimpleParser</artifactId>
+  <version>0.1</version>
+  <name>SimpleParser</name>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>            
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>create-executable-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+          			    <mainClass>com.gmail.martinprobson.simpleparser.TokenTree</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+      <mainClass>com.gmail.martinprobson.simpleparser.TokenTree</mainClass>
+        </configuration>
+      </plugin>            
+    </plugins>
+  </build>
+  <description>SICP Learning/Notes 
+
+Simple Tokenizer and Parser that will build a TokenTree
+from simple Lisp like expresssions such as: -
+           (+ 2 (* 2 (- 1 5)))
+
+ Note that this is very simplistic as only deals with +ve integers.
+  
+ Based on Section 1.1.3 Evaluating Expressions in 
+ 'Structure and Interpretation of Computer Programs'
+https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-1.html</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.12</version>
+  		<scope>compile</scope>
+  	</dependency>
+  </dependencies>
+  <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+</project>
